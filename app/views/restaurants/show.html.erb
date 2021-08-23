@@ -1,0 +1,15 @@
+<div class="container py-5">
+  <div class="card">
+    <div class="card-header">
+      <%= @restaurant.name%>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title"><%= @restaurant.address %></h5>
+      <h5 class="card-title"><%= @restaurant.phone_number %></h5>
+      <h5 class="card-title"><%= @restaurant.category %></h5>
+      <div class="border text-center">
+        <%= link_to 'eliminar', restaurant_path(@restaurant), method: :delete %> || <%= link_to 'editar', edit_restaurant_path%> || <%= link_to 'Home', restaurants_path%> 
+      <div>
+    </div>
+  </div>
+</div>  

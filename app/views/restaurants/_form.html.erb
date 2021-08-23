@@ -1,0 +1,12 @@
+<div class="container">
+  <%= simple_form_for @restaurant do |f| %>
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :phone_number %>
+    <%= f.input :category %>
+    <%= f.button :submit, "Incluir Restaurante", class: "btn btn-success mt-3"%>
+  <% end %>
+</div>
+<div class="text-center py-3"> 
+  <%=link_to 'volver a restaurantes', restaurants_path, class: 'btn btn-primary'%>
+</div>

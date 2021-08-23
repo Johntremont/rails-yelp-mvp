@@ -3,7 +3,7 @@
   <% @restaurants.each do |restaurant| %>
     <div class="card mb-3" style="width: 18rem;">
       <ul class="list-group list-group-flush">
-        <li class="list-group-item"> <strong>Nombre: </strong><%=restaurant.name %></li>
+        <li class="list-group-item"> <strong>Nombre: </strong><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
         <li class="list-group-item"> <strong>Direccion: </strong><%=restaurant.address %></li>
         <li class="list-group-item"> <strong>Contacto: </strong><%=restaurant.phone_number %></li>
         <li class="list-group-item"> <strong>Categoria: </strong><%=restaurant.category %></li>
@@ -11,4 +11,8 @@
     </div>    
   <% end %>
 </div>
-  <%= link_to 'Incluir otro restaurant', new_restaurant_path%>
+<div class="container">
+  <div class="text-center py-3">
+    <%= link_to 'Incluir otro restaurant', new_restaurant_path, class: 'btn btn-primary'%>
+  </div>
+</div>

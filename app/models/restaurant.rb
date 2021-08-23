@@ -1,4 +1,4 @@
 class Restaurant < ApplicationRecord
-  validates :name, presence: true
+  validates :name, :address, :phone_number, :category, presence: true
   has_many :reviews
 end
