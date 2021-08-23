@@ -1,3 +1,14 @@
-<div class="container">
-  <h1> TODOS LOS RESTAURANTES </h1>
+  <h1 class="py-5"> TODOS LOS RESTAURANTES </h1>
+<div class="container mt-4 d-flex justify-content-evenly">
+  <% @restaurants.each do |restaurant| %>
+    <div class="card mb-3" style="width: 18rem;">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"> <strong>Nombre: </strong><%=restaurant.name %></li>
+        <li class="list-group-item"> <strong>Direccion: </strong><%=restaurant.address %></li>
+        <li class="list-group-item"> <strong>Contacto: </strong><%=restaurant.phone_number %></li>
+        <li class="list-group-item"> <strong>Categoria: </strong><%=restaurant.category %></li>
+      </ul>
+    </div>    
+  <% end %>
 </div>
+  <%= link_to 'Incluir otro restaurant', new_restaurant_path%>
