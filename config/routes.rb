@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  resources :restaurants
+  resources :restaurants do
+    resources :reviews, only: %i[new create]
+  end
+
+  resources :reviews, only: %i[destroy]
 end

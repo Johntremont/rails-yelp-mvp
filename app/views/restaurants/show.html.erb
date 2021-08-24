@@ -4,11 +4,18 @@
       <%= @restaurant.name%>
     </div>
     <div class="card-body">
-      <h5 class="card-title"><%= @restaurant.address %></h5>
-      <h5 class="card-title"><%= @restaurant.phone_number %></h5>
-      <h5 class="card-title"><%= @restaurant.category %></h5>
+      <h5 class="card-title"><span class="link-primary">Direccion: </span> <%= @restaurant.address.capitalize %></h5>
+      <h5 class="card-title"><span class="link-primary">Contacto: </span><%= @restaurant.phone_number %></h5>
+      <h5 class="card-title"><span class="link-primary">Categoria: </span><%= @restaurant.category.capitalize %></h5>
+      <ul class="list-group mb-3">
+        <% @restaurant.reviews.each do |review| %>
+          <li class="list-group-item"><%= review.content %></li>
+          <li class="list-group-item"><%= review.rating %> Stars</li>
+          <%= link_to "Remove", review_path(review), method: :delete, data: { confirm: "Are you sure?" } %>
+        <% end %>
+      </ul>
       <div class="border text-center">
-        <%= link_to 'eliminar', restaurant_path(@restaurant), method: :delete %> || <%= link_to 'editar', edit_restaurant_path%> || <%= link_to 'Home', restaurants_path%> 
+        <%= link_to 'Eliminar', restaurant_path(@restaurant), method: :delete %> || <%= link_to 'Editar', edit_restaurant_path%> || <%= link_to 'Home', restaurants_path%> || <%= link_to 'Leave a review', new_restaurant_review_path(@restaurant) %>
       <div>
     </div>
   </div>
